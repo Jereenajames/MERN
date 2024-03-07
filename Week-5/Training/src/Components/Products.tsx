@@ -8,13 +8,10 @@ const Products = () =>{
         {products.map((products) =>{
             return(
                 <h2>{Product.title}</h2>
-                <h2>{Product.price}</h2>
-                <h2>{P}</h2>
-
+                <h2>{Product.price}</h2>        
             )
         }
-        
-        )}
+         )}
         </>
     );
 }
