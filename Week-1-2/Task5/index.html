@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task5</title>
+</head>
+
+<body>
+    <script>
+
+        // // 1. Scenario: You're developing a website for a clothing store. 
+        // Depending on the weather, you want to display different messages on the homepage. 
+        // Write a JavaScript conditional statement using logical operators to display 
+        // "Stay warm with our winter collection!" if the temperature is below 10 degrees Celsius,
+        //  "Enjoy the sunshine with our summer collection!"  if the temperature is above 25 degrees Celsius, and 
+        //  "Check out our all-season collection!" for temperatures in between.
+
+        let value = prompt("Enter your Name ")
+        console.log("Hello" + " " + value);
+
+        let temperature = 500
+
+        if (temperature < 10) {
+
+            console.log("Stay warm with our winter collection!");
+        }
+
+        else if (temperature >= 10 && temperature <= 25) {
+            console.log("Check out our all-season collection!");
+        }
+        else if (temperature > 25) {
+
+            console.log("Enjoy the sunshine with our summer collection!");
+        }
+        else {
+            console.log("Invalid wether ");
+
+        }
+
+
+        //  2. Scenario: You're building a quiz application where users earn badges based on their scores.
+        //  Implement a JavaScript conditional statement that assigns badges based on the user's score. 
+        //  If the score is above 90, they receive a "Gold Badge", 
+        //  if it's between 70 and 90 (inclusive) they get a "Silver Badge", 
+        //  and if it's below 70 they get a "Bronze Badge".
+
+        let item = prompt("Enter your Name")
+        let score = 109;
+
+        if (score > 90) {
+            console.log("Hello", item, "You are recived Gold Badge ");
+        }
+        else if (score >= 70 && score <= 90) {
+            console.log("Hello", item, "You are recived Silver Badge");
+        }
+        else if (score < 70) {
+            console.log("Hello" + " " + item + " " + "You are recived Bronze Badge");
+        }
+        else {
+            console.log("You didn't got any Badge");
+        }
+
+        // 5. Scenario: You're building a subscription-based service where users can choose different plans. 
+        // Each plan has different features. Write a JavaScript function that takes the user's chosen 
+        // plan and age as input and calculates the subscription fee based on the following conditions:
+        // //    - If the user is under 18 years old, they get a 10% discount on any plan.
+        //    - If the user chooses the "Premium" plan and is over 60 years old, they get a 20% discount.
+        //    - If the user chooses the "Basic" plan, they pay $10 per month.
+        //    - If the user chooses the "Standard" plan, they pay $20 per month.
+        //    - If the user chooses the "Premium" plan, they pay $30 per month.
+
+        let age = prompt("Enter Your Age ")
+        console.log("Your Age is : ", age);
+
+
+        let plan1 = prompt("Enter Your Plan ")
+        console.log("Your Plan is : ",plan1);
+
+        let basic = 100
+        let standard = 200
+        let premium = 300
+
+
+        if (plan1 == "Basic","Standard" && age < 18) {         
+
+                console.log(" Basic Fee : ", basic - (10 / 100) * (basic))  
+                // console.log("Standard fee : " , standard - (10/100)*(standard)); 
+                // console.log("premium fee : " ,premium - (10/100)*(premium))    
+        }
+        else if(age>60 && plan1 == "Premium"){
+            console.log("Premium fee : ", premium - (20/100)*(premium));
+        }
+        else if (age>=18 && plan1 == "Standard" ){
+
+            console.log("No Offer for this plan");
+        }
+        else {
+            console.log("Invalid Option You entered ");
+        }
+
+
+        // 11. Suppose you're building a weather application that provides recommendations based on the temperature
+        //  and weather conditions. How would you use conditional statements in JavaScript to suggest activities 
+        //  like "Bring an umbrella" if it's raining, or "Wear sunscreen" if it's sunny?
+
+
+        let weather = 1;
+
+        if(weather <= 40)
+            {
+                console.log("Bring an umbrella");
+            }
+
+        else{
+                console.log("Wear sunscreen");
+            }
+
+    </script>
+
+</body>
+
+</html>

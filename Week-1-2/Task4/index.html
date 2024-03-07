@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //  1. Use `prompt` to ask the user for their name and store it in a variable.
+        var fName = prompt("Enter your Name")
+        alert("Hello"+" "+ fName );
+
+        // 2. Display an alert with a custom message using `alert`.
+
+        alert("Welcome to the page!!");
+
+        // 3. Get input from the user using `confirm` and store the result in a variable.
+
+        let userInput = confirm(" Are you ready to proceed? ")
+
+        if(confirm){
+            console.log("Ready to proceed...");
+        }
+        else{
+            console.log("Not ready to procced...");
+        }
+
+        // 4. Use `prompt` to get a number from the user, convert it to a numeric type, and perform an arithmetic operation.
+    
+        let numb1 = prompt("Enter the frist number");
+
+        let num2 = +(numb1)
+
+        console.log(num2 + 5);
+
+
+//         4. Type Conversion:
+
+// 1. Convert a string to a number and perform an arithmetic operation.
+
+        let str1 = ("345")
+        let num1 = Number(str1)
+        console.log(num1);
+
+// 2. Convert a number to a string and concatenate it with another string.
+
+        let value1 = 562
+        let value2 = String(value1)
+        let value3 = "Hello"
+        console.log((value3) +" "+ (value2));
+
+// 3. Convert a boolean to a string and check its type using `typeof`.
+
+    let value4 = true   
+    let value5 = value4.toString()    
+    console.log(typeof(value5));
+
+// 4. Convert a string to a boolean and evaluate its truthiness.
+
+        let item1 = "Hello"
+        let item2 = Boolean(item1)
+        console.log(item2);
+       
+
+// 5. Convert a number to a boolean and check its type using `typeof`.
+
+        let numb2 = 56
+        let numb3 = Boolean(numb2)
+        console.log(numb3);
+        console.log(typeof(numb3));
+
+// 9. Use the `String` constructor to convert a number to a string.
+
+        let itm3 = 523
+        let itm4 = String(itm3)
+        console.log(itm4);
+        console.log(typeof(itm4));
+
+// 10. Convert a boolean to a number and check its value.
+
+        let itm1 = true;
+        let itm2 = Number(itm1)
+        console.log(itm2);
+    
+    
+    </script>
+</body>
+
+</html>
