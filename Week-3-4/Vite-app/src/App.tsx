@@ -78,7 +78,7 @@ export const CartState = () => {
 
 function App () {
  
-  const [data, setdata] = useState('Manoj')
+  const [data, setdata] = useState('James')
   function handleClick(){
     setdata("Jereena")
     
