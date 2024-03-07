@@ -3,3 +3,4 @@ const users =[
     {id : 102, Name :'Jerrina', email : "Jerri@gmail.com", Password : "123"},
 
 ]
+export default users;
