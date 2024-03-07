@@ -17,78 +17,78 @@ export const Holder = createContext(null);
 export const CartState = () => {
   return useContext(Holder)
 }
-// function App() {
+function App() {
 
-//   const stateReducer = (state : any ,action :any) => {
-//     switch (action.type) {
-//       case "ADD_TODO":
-//         return [...state,{value: action.payload}]
+  const stateReducer = (state : any ,action :any) => {
+    switch (action.type) {
+      case "ADD_TODO":
+        return [...state,{value: action.payload}]
         
-//       default:
-//         throw new Error("Bad Action");
-//     }
-//   }
-//   const [products, setProducts] = useState([{ name : 'Manpoj'}])
-//   const [state, dispatch] = useReducer(stateReducer,products)
+      default:
+        throw new Error("Bad Action");
+    }
+  }
+  const [products, setProducts] = useState([{ name : 'Manpoj'}])
+  const [state, dispatch] = useReducer(stateReducer,products)
 
 
  
 
-//   useMemo(() => {
-//    axios.get('http://fakestoreapi.com/products')
-//    .then((response : any) => {
-//       setProducts(response.data)
-//       console.log(response.data,"response data")
-//    })
-//   }, [])
+  useMemo(() => {
+   axios.get('http://fakestoreapi.com/products')
+   .then((response : any) => {
+      setProducts(response.data)
+      console.log(response.data,"response data")
+   })
+  }, [])
   
 
-//   return (
+  return (
 
-//     <Holder.Provider value={{state, dispatch}} >
+    <Holder.Provider value={{state, dispatch}} >
 
-// <div className='header'>
-//         <header> Flipkart</header>
+<div className='header'>
+        <header> Flipkart</header>
      
    
-//         {/* <Products /> */}
-//         <Router>
+        {/* <Products /> */}
+        <Router>
 
-//           <Nav />
-//           <Routes>
-//             <Route path='/' element={<Homepage />} />
-//             <Route path='/about' element={<Aboutpage />} />
-//             <Route path='/product' element={ <Products /> } />
-//             <Route path='/reducer' element={<Reducer />} />
-//             <Route path='/context' element={<Context/>} />
-//           </Routes>
-//         </Router>
+          <Nav />
+          <Routes>
+            <Route path='/' element={<Homepage />} />
+            <Route path='/about' element={<Aboutpage />} />
+            <Route path='/product' element={ <Products /> } />
+            <Route path='/reducer' element={<Reducer />} />
+            <Route path='/context' element={<Context/>} />
+          </Routes>
+        </Router>
 
         
 
-//       </div>
-
-
-//     </Holder.Provider>
-
- 
-//   )
-// }
-
-
-function App () {
- 
-  const [data, setdata] = useState('James')
-  function handleClick(){
-    setdata("Jereena")
-    
-  }
-  return(
-    <div>
-      <p> Hello World {data}</p>
-      <button onClick={() => handleClick()}> CLick</button>
       </div>
+
+
+    </Holder.Provider>
+
+ 
   )
 }
+
+
+// function App () {
+ 
+//   const [data, setdata] = useState('James')
+//   function handleClick(){
+//     setdata("Jereena")
+    
+//   }
+//   return(
+//     <div>
+//       <p> Hello  {data}</p>
+//       <button onClick={() => handleClick()}> CLick</button>
+//       </div>
+//   )
+// }
 
 export default App

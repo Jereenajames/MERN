@@ -7,12 +7,12 @@ const Reducer = () => {
         [
             {
                 id : 1,
-                name : "Manoj",
+                name : "Jenna",
                 age : 20
             },
             {
                 id : 2,
-                name : "Prabaa",
+                name : "Jemi",
                 age : 30
             }
         ]
@@ -20,13 +20,13 @@ const Reducer = () => {
 
     let formValue = {
         id : 1,
-        name : "Rama",
+        name : "Maya",
         age : 20
     }
 
     let updateValue = {
         id : 1,
-        name : "Updated Name",
+        name : "Dinku",
         age : 50
     }
 
