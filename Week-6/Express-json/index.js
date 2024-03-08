@@ -4,7 +4,7 @@ import products from "./data.js"
 
 const app = express();
 
-app.use(express.static("./client"));
+app.use(express.static("./client/index.html"));
 
 // // midleware => function => req,res, next()
 // //req <=> middlleware <=> res
@@ -43,7 +43,7 @@ app.get("/api/v1/productdetails",(req,res) =>{
     res.status(200).json({success:true, data:limitedProperties});
 })
 
-// //http://localhost:5000/api/v1/api/products/query?search=mens
+// // //http://localhost:5000/api/v1/api/products/query?search=mens
 
 app.get("/api/v1/api/products/query",(req,res) =>{
    const {search, limit} = req.query;
