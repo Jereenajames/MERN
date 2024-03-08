@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express-Json</title>
+</head>
+<body>
+    <h1>Express-Json</h1>
+
+    <div id="products"></div>
+    <script>
+        async function getProducts(){
+            try{
+                const res = await fetch("http://localhost:5000/api/v1/products");
+                const products = await res.json();
+                console.log(products.data);
+                const productsData = products.data;
+                // document.querySelector("#products").innerHTML =JSON.stringify(productsData)
+                const productsEle=productsData.map((products) => {
+                    return
+                       `
+                       <div className = product - ${products}>
+                        <h1>${products.tittle}</h1>
+                        <p>${products.description}</p>
+                        <hr/>
+                        </div>
+                    `;
+                });
+                console.log(productsEle);
+                document.querySelector("#products").innerHTML =productsEle.json(" ")
+            }catch(error){
+                console.log("error");
+            }
+        }getProducts();
+    </script>
+
+
+</body>
+</html>

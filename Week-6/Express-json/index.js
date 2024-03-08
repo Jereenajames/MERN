@@ -6,17 +6,17 @@ const app = express();
 
 app.use(express.static("./client"));
 
-// midleware => function => req,res, next()
-//req <=> middlleware <=> res
+// // midleware => function => req,res, next()
+// //req <=> middlleware <=> res
 
-const auth = (req,res,next) =>{
- const {username} = req.query;
- if(username!== jerry ){
-    res.status(404).json({success: false, message :"Unauthorised "})
- }else{
-    next();
- }
-   }
+// const auth = (req,res,next) =>{
+//  const {username} = req.query;
+//  if(username!== jerry ){
+//     res.status(404).json({success: false, message :"Unauthorised "})
+//  }else{
+//     next();
+//  }
+//    }
 
 //    app.use(auth);
 
@@ -25,11 +25,25 @@ app.get("/", (req, res) => {
     res.status(200).json({success : true, message :" This is json file"})
 })
 
-app.get("/api/v1/product",auth,(req,res) => {
+// app.get("/api/v1/product",auth,(req,res) => {
+app.get("/api/v1/product",(req,res) => {
     res.status(200).json({success : true, data : products})
 })
+app.get("/api/v1/productdetails",(req,res) =>{
+    const limitedProperties = products.map((product) =>{
+        return{
+            id:product.id,
+            title:product.title,
+            description:product.description,
+            price : product.price,
+        };
+    });
+    // console.log(products);
+    // console.log(limitedProperties);
+    res.status(200).json({success:true, data:limitedProperties});
+})
 
-//http://localhost:5000/api/v1/api/products/query?search=mens
+// //http://localhost:5000/api/v1/api/products/query?search=mens
 
 app.get("/api/v1/api/products/query",(req,res) =>{
    const {search, limit} = req.query;
