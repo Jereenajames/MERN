@@ -9,24 +9,24 @@ app.use(express.static("./client/index.html"));
 // // midleware => function => req,res, next()
 // //req <=> middlleware <=> res
 
-// const auth = (req,res,next) =>{
-//  const {username} = req.query;
-//  if(username!== jerry ){
-//     res.status(404).json({success: false, message :"Unauthorised "})
-//  }else{
-//     next();
-//  }
-//    }
+const auth = (req,res,next) =>{
+ const {username} = req.query;
+ if(username!== "jerry" ){
+    res.status(404).json({success: false, message :"Unauthorised "})
+ }else{
+    next();
+ }
+   }
 
-//    app.use(auth);
+   app.use(auth);
 
 
 app.get("/", (req, res) => {
     res.status(200).json({success : true, message :" This is json file"})
 })
 
-// app.get("/api/v1/product",auth,(req,res) => {
-app.get("/api/v1/product",(req,res) => {
+app.get("/api/v1/product",auth,(req,res) => {
+// app.get("/api/v1/product",(req,res) => {
     res.status(200).json({success : true, data : products})
 })
 app.get("/api/v1/productdetails",(req,res) =>{
