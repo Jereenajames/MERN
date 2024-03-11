@@ -22,18 +22,18 @@ export const getUserById = async (req,res) => {
     }
 }
 
-export const signin = async (req,res) => {
-    try {
-        const {email,password} = req.body;
-        const findUser=await UserActivation.findOne({email:email})
+// export const signin = async (req,res) => {
+//     try {
+//         const {email,password} = req.body;
+//         const findUser=await UserActivation.findOne({email:email})
 
-        console.log(findUser);
-        if(!findUser) return res.status(404).json({sucess:false,message:`No user with this email :${email}` })
-        const comparePassword = await bycrypt.compare(password,findUser.password);
-        console.log(comparePassword);
-        if()
+//         console.log(findUser);
+//         if(!findUser) return res.status(404).json({sucess:false,message:`No user with this email :${email}` })
+//         const comparePassword = await bycrypt.compare(password,findUser.password);
+//         console.log(comparePassword);
+//         if()
 
-    } catch (error) {
-        res.status(400).json({sucess :false, message : error})
-    }
-}
+//     } catch (error) {
+//         res.status(400).json({sucess :false, message : error})
+//     }
+// }
