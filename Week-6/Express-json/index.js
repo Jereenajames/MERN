@@ -60,7 +60,14 @@ else{
 }
 })
 
-
+app.get("/api/v1/products/:id",(req,res)=>{
+    console.log(req);
+    const id = req.params;
+    const findProduct = products.find((product) => product.id === +id);
+    if(!findProduct)
+    return res.status(404).json({success : false , message : `No product with the id  : ${id}`});
+    res.status(200).json({success: true, data:findProduct})
+})
 
 
 app.listen(5000, () =>{
