@@ -1,19 +1,24 @@
 
 import express from "express";
-import { getAllUsers,getUserById } from "./controllers/userController.js";
+import userRoutes from "./routes/userRoutes.js"
 
 const  app = express();
 const PORT = 5000
 
+app.use("/api/v1/users",userRoutes)
 
 app.get("/",(req,res) =>{
     res.status(200).json({sucess :true, message : "Welcome"})
 });
 
-//Geting all the users
+//Geting all the users http://localhost:5000/api/v1/users
 
 app.get("/api/v1/users", getAllUsers);
+
+//Geting all the users http://localhost:5000/api/v1/users/:id
 app.get("/api/v1/users/:id", getUserById)
+
+
 // app.get("/api/v1/users", (req,res) =>{
 //     try {
 //         res.status(200).json({sucess :true, data:users})

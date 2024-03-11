@@ -7,4 +7,6 @@ router.get("/api/v1/users",getAllUsers);
 //getUserById
 router.get("/api/v1/users/:id",getUserById);
 
+//Signin - http://localhost:5000/api/v1/users/signin
+router.get("/api/v1/users/:id",getUserById);
 export default router;
