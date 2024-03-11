@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json())
 
 
-//get All Users
+//get All Users  
 app.get ("/",(req,res) =>{
     res.status(200).json({success : true, data :users});
 })
@@ -25,6 +25,8 @@ app.get ("/api/v1/users/:id",async(req,res) =>{
     }
 })
 
+//create User  - data
+
 app.post("/api/v1/users", async(req, res) =>{
     try {
         console.log(req.body);
@@ -37,9 +39,31 @@ app.post("/api/v1/users", async(req, res) =>{
 })
 
 
+//Update -data and id 
+app.put("/api/v1/users/:id",async(req,res) =>{
+   try {
+    const { id } = req.params;
+    const data = req.body;
+    const updatedUser = user.map((user) =>
+        user.id === +id ? { id : user.id, ...data} :user        
+    )
+    res.status(200).json({success : true, data:updatedUser, })
+   } catch (error) {
+    res.status(400).json({success : false, message : "error" })
+   } 
+})
 
-
-
+app.delete("/api/v1/users/:id",async(req,res) =>{
+    try {
+        const id = req.params;
+        const newUsers = users.filter((user) => user.id !== +id)
+        
+        res.status(200).json({success : true, data: newUsers, })
+     
+     } catch(error) {
+        res.status(400).json({success : false, message : "error" })
+    }
+})
 
 app.listen(5000,()=>{
     console.log("Server is runing in : http://localhost:5000");
