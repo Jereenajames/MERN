@@ -4,6 +4,7 @@ import User from "../models/userModel.js";
 
 export const getAllUsers = async (req,res) =>{
     try{
+        const users = await User.find();
         res.status(200).json({sucess : true , data : users});
         }
         catch(error){
@@ -14,7 +15,8 @@ export const getAllUsers = async (req,res) =>{
 export const getUserById = async (req,res) => {
     try {
         const{ id } = req.params;
-        const findUser = users.find((user) => user.id === +id)
+        // const findUser = users.find((user) => user.id === +id)
+        const findUser = await User.findById(id)
         if(!findUser)
         return res.status(404).json({sucess : false,message:`No user with this id :${id}` })
         res.status(200).json({sucess:true,data :findUser})
@@ -42,18 +44,27 @@ export const signup = async (req,res) => {
     }
 }
 
-// export const signin = async (req,res) => {
-//     try {
-//         const {email,password} = req.body;
-//         const findUser=await UserActivation.findOne({email:email})
+export const signin = async (req,res) => {
+    try {
+        const {email,password} = req.body;
+        const findUser = await User.findOne({email :email})
+        console.log(findUser);
+        if(!findUser)
+        return res.status(404).json({sucess : false,message:`No user with this email :${email}` })
+       const comparePassword = await bcrypt.compare(password, findUser.password)
+        if(!comparePassword)
+        res.status(400).json({sucess :false, message : "Invalid Credential"})
+        res.status(200).json({sucess:true, message :"Logged in Sucessfully" })
 
-//         console.log(findUser);
-//         if(!findUser) return res.status(404).json({sucess:false,message:`No user with this email :${email}` })
-//         const comparePassword = await bycrypt.compare(password,findUser.password);
-//         console.log(comparePassword);
-//         if()
+    } catch (error) {
+        res.status(400).json({sucess :false, message : error})
+    }
+}
 
-//     } catch (error) {
-//         res.status(400).json({sucess :false, message : error})
-//     }
-// }
+export const updateUserById = async(req,res) {
+    try {
+        
+    } catch (error) {
+        res.status(400).json({sucess :false, message : error})
+    }
+}
