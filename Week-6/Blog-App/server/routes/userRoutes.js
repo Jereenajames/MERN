@@ -1,12 +1,18 @@
-import express from 'express'
-import { getAllUsers, getUserById } from '../controllers/userController';
+import express from 'express';
+import { getAllUsers, getUserById,signup } from '../controllers/userController.js';
 const  router = express.Router();
 
 //getAllUser
-router.get("/api/v1/users",getAllUsers);
+router.get("/", getAllUsers);
+
 //getUserById
-router.get("/api/v1/users/:id",getUserById);
+router.get("/:id",getUserById);
+
+//Signup - http://localhost:5000/api/v1/users/Signup
+router.post("/signup", signup)
 
 //Signin - http://localhost:5000/api/v1/users/signin
-router.get("/api/v1/users/:id",getUserById);
+// router.post("/signin", signin)
+
+
 export default router;

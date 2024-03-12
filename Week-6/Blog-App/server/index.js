@@ -1,10 +1,16 @@
 
 import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 import userRoutes from "./routes/userRoutes.js"
+import { getAllUsers, getUserById,signup } from './controllers/userController.js'
+
+dotenv.config()
 
 const  app = express();
-const PORT = 5000
-
+const PORT = process.env.PORT;
+const CONNECTION_URL = process.env.CONNECTION_URL;
+app.use(express.json());
 app.use("/api/v1/users",userRoutes)
 
 app.get("/",(req,res) =>{
@@ -18,7 +24,7 @@ app.get("/api/v1/users", getAllUsers);
 //Geting all the users http://localhost:5000/api/v1/users/:id
 app.get("/api/v1/users/:id", getUserById)
 
-
+app.get("/api/v1/users/signup", signup)
 // app.get("/api/v1/users", (req,res) =>{
 //     try {
 //         res.status(200).json({sucess :true, data:users})
@@ -43,5 +49,10 @@ app.get("/api/v1/users/:id", getUserById)
 //     }
 // })
 
+
+mongoose.connect(CONNECTION_URL).then(() =>
 app.listen(PORT, () => 
-console.log(`Server is running in : http://localhost:${PORT}`));
+console.log(`Server is running in : http://localhost:${PORT}`)
+)
+)
+.catch((error) => console.log(error))
