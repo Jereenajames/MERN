@@ -63,13 +63,26 @@ export const signin = async (req, res) => {
 
 export const updateUserById = async (req, res) => {
     try {
+        const {id} = req.params;
         const encryptPassword = await bcrypt.hash(req.body.password, 12)
-        const updateUser = await User.findByIdAndUpdate(id, {
+        const updatedUser = await User.findByIdAndUpdate(id, {
             ...req.body,
             password: encryptPassword, confirmPassword: encryptPassword
         }, { new: true })
-        res.status(200).json({ sucess: true, data: updateUser })
+        res.status(200).json({ sucess: true, data: updatedUser })
     } catch (error) {
         res.status(400).json({ sucess: false, message: error })
     }
+}
+
+export const deleteUserById =async(req,res) =>{
+  try {
+    const {id} = req.params;
+            const result = await User.findByIdAndDelete(id)
+            if(!result)
+            return res.status(404).json({sucess:false,message:`No user with this id :${id}` })        
+             res.status(200).json({ sucess: true, message:"User deleted sucessfully" })
+  } catch (error) {
+    res.status(400).json({ sucess: false, message: error })
+  }
 }

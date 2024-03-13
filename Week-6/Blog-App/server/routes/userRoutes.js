@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAllUsers, getUserById,signup,signin,updatUserById,deleteUserById } from '../controllers/userController.js';
+import { getAllUsers, getUserById,signup,signin,updateUserById,deleteUserById} from '../controllers/userController.js';
 const  router = express.Router();
 
 //getAllUser -http://localhost:5000/api/v1/users
@@ -15,9 +15,9 @@ router.post("/signup", signup)
 router.post("/signin", signin)
 
 //Update - http://localhost:5000/api/v1/users/:id
-router.post("/:id", updatUserById )
+router.put("/:id", updateUserById )
 
 //Delete - http://localhost:5000/api/v1/users/:id
-router.post("/:id", deleteUserById )
+router.delete("/:id", deleteUserById )
 
 export default router;

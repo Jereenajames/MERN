@@ -3,7 +3,8 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRoutes from "./routes/userRoutes.js"
-import { getAllUsers, getUserById,signup } from './controllers/userController.js'
+import postRoutes from "./routes/postRoutes.js"
+import { getAllUsers, getUserById,signup,updateUserById,deleteUserById } from './controllers/userController.js'
 
 dotenv.config()
 
@@ -12,6 +13,7 @@ const PORT = process.env.PORT;
 const CONNECTION_URL = process.env.CONNECTION_URL;
 app.use(express.json());
 app.use("/api/v1/users",userRoutes)
+app.use("/api/v1/posts",postRoutes)
 
 app.get("/",(req,res) =>{
     res.status(200).json({sucess :true, message : "Welcome"})
