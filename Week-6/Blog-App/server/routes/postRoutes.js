@@ -16,6 +16,6 @@ router.get("/:id",getPostById)
 router.put("/:id",updatePostById)
 
 //deletePostById - http://localhost:5000/api/v1/posts/id
-router.put("/:id",deletePostById)
+router.delete("/:id",deletePostById)
 
 export default router;
