@@ -5,12 +5,14 @@ import dotenv from "dotenv";
 import userRoutes from "./routes/userRoutes.js"
 import postRoutes from "./routes/postRoutes.js"
 import { getAllUsers, getUserById,signup,updateUserById,deleteUserById } from './controllers/userController.js'
+import cors from 'cors'
 
 dotenv.config()
 
 const  app = express();
 const PORT = process.env.PORT;
 const CONNECTION_URL = process.env.CONNECTION_URL;
+app.use(cors())
 app.use(express.json());
 app.use("/api/v1/users",userRoutes)
 app.use("/api/v1/posts",postRoutes)

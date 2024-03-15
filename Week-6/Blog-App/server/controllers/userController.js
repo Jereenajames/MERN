@@ -38,7 +38,7 @@ export const signup = async (req, res) => {
             confrimPassword: confrimPassword
         }
         const user = await User.create(signupObj);
-        res.status(201).json({ sucess: true, data: user })
+        res.status(201).json({ sucess: true, data: user ,message:"User Created sucessfully "})
     } catch (error) {
         res.status(400).json({ sucess: false, message: error })
     }

@@ -5,7 +5,7 @@ export const createPost = async (req, res) => {
     try {
         const { id } = req.params;
         const post = await Post.create({ author: id, ...req.body });
-        res.status(202).json({ sucess: true, data: post })
+        res.status(202).json({ sucess: true, data: post,  })
     } catch (error) {
         res.status(404).json({ sucess: false, message: error })
     }

@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 const NavComp = () =>{
     return(
         <div>
-            <Navbar bg="light" data-bs-theme="light">
+            <Navbar bg="primary" data-bs-theme="primary">
         <Container>
-          <Navbar.Brand href="#home">BLOG APP</Navbar.Brand>
-          <Nav className="me-auto">
+          <Link className ="btn-btn-primary me-5" to="/" style={{fontSize: "22px"}}> BLOG APP </Link>
+          <Nav>
             <Link className="btn btn-primary me-5" to="/">Post</Link>
             <Link className="btn btn-primary me-5" to="/signin">SignIn</Link>
             <Link className="btn btn-primary me-5" to="/signup">signup</Link>
