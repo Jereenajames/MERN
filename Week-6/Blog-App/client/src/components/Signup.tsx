@@ -2,6 +2,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import axios from 'axios';
+import { Container } from 'react-bootstrap';
 
 const Signup = () => {
     const [user, setUser] = useState({
@@ -44,9 +45,8 @@ const Signup = () => {
         }else{
             alert("Password and confrim Password not same");
             }    
-
     }
-    return <div>
+    return <Container>
         <h2 className="display-4 text-center">Signup</h2>
         <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -73,6 +73,7 @@ const Signup = () => {
             <Button variant="primary" onClick={handleSubmit} >Register</Button>{' '}
             <Button variant="secondary">Cancle</Button>{' '}
         </Form>
-    </div>
+        
+        </Container>
 }
 export default Signup;
