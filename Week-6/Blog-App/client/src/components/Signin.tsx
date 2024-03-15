@@ -33,7 +33,7 @@ const Signin = () => {
             
             else{
                 axios.post(" http://localhost:5000/api/v1/users/signin",user)
-                .then((res) => console.log(res.data))
+                .then((res) => alert(res.data.message))
                 .catch((error)=> console.log(error.response.data.message))
             }
             }
