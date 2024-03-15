@@ -51,9 +51,9 @@ export const signin = async (req, res) => {
         console.log(findUser);
         if (!findUser)
             return res.status(404).json({ sucess: false, message: `No user with this email :${email}` })
-        const comparePassword = await bcrypt.compare(password, findUser.password)
+        const comparePassword = bcrypt.compare(password, findUser.password)
         if (!comparePassword)
-            res.status(400).json({ sucess: false, message: "Invalid Credential" })
+           return res.status(400).json({ sucess: false, message: "Invalid Credential" })
         res.status(200).json({ sucess: true, message: "Logged in Sucessfully" })
 
     } catch (error) {

@@ -22,16 +22,19 @@ const Signin = () => {
             });
     }
 
-    const handleSubmit = async (e: any) => {
-        // e.preventDefalut()
-        console.log(user);      
-
+    const handleSubmit = async (e : any) => {
+        e.preventDefault()
+        console.log(user);   
         const{email,password} = user;
-        if(email === "" ||password === ""  ){
+        if(email === "" || password === ""  ){
 
                 alert("All the feild are mandatory");
-            }       else{
+            }     
+            
+            else{
                 axios.post(" http://localhost:5000/api/v1/users/signin",user)
+                .then((res) => console.log(res.data))
+                .catch((error)=> console.log(error.response.data.message))
             }
             }
         

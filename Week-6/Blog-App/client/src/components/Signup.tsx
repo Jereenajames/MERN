@@ -24,11 +24,8 @@ const Signup = () => {
     }
 
     const handleSubmit = async (e: any) => {
-        // e.preventDefalut()
+        e.preventDefault()
         console.log(user);
-
-        // {username:'Jeniliya', email: "jeni@gmail.com", password:"123456", confirmPassword: "123456"}
-
         const{username,email,password,confirmPassword} = user;
         if(
             username === "" ||
