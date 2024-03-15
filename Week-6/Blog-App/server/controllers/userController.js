@@ -1,6 +1,9 @@
-import jwt from ""
+import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 import User from "../models/userModel.js";
+import dotenv from "dotenv";
+dotenv.config();
+const SECRET = process.env.SECRET;
 
 export const getAllUsers = async (req, res) => {
     try {
@@ -54,7 +57,8 @@ export const signin = async (req, res) => {
         const comparePassword = bcrypt.compare(password, findUser.password)
         if (!comparePassword)
            return res.status(400).json({ sucess: false, message: "Invalid Credential" })
-        res.status(200).json({ sucess: true, message: "Logged in Sucessfully" })
+        const token = jwt.sign({email: findUser.email, id : findUser._id}, SECRET)
+        res.status(200).json({ sucess: true, message: "Logged in Sucessfully" , token :token})
 
     } catch (error) {
         res.status(400).json({ sucess: false, message: error })
